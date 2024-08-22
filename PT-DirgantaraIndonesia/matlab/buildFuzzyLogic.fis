@@ -1,0 +1,49 @@
+[System]
+Name='fai_fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 360]
+NumMFs=8
+MF1='Utara':'trapmf',[0 0 5 30]
+MF2='Timur_Laut':'trapmf',[15 40 50 75]
+MF3='Selatan':'trapmf',[150 175 185 210]
+MF4='Timur':'trapmf',[60 85 95 120]
+MF5='Tenggara':'trapmf',[105 130 140 165]
+MF6='Barat_Daya':'trapmf',[195 220 230 255]
+MF7='Barat':'trapmf',[240 265 275 300]
+MF8='Barat_Laut':'trapmf',[285 310 360 360]
+
+[Output1]
+Name='output1'
+Range=[-180 180]
+NumMFs=9
+MF1='Kiri_Penuh':'trimf',[-180 -180 -157.5]
+MF2='Tetap':'trimf',[-22.5 0 22.5]
+MF3='Lebih_Kanan':'trimf',[112.5 135 157.5]
+MF4='Lebih_Kiri':'trimf',[-157.5 -135 -112.5]
+MF5='Kiri':'trimf',[-112.5 -90 -67.5]
+MF6='Sedikit_Kiri':'trimf',[-67.5 -45 -22.5]
+MF7='Sedikit_Kanan':'trimf',[22.5 45 67.5]
+MF8='kanan':'trimf',[67.5 90 112.5]
+MF9='Kanan_Penuh':'trimf',[157.5 180 180]
+
+[Rules]
+1, 2 (1) : 1
+2, 7 (1) : 1
+4, 8 (1) : 1
+5, 3 (1) : 1
+3, 9 (1) : 1
+6, 4 (1) : 1
+7, 5 (1) : 1
+8, 6 (1) : 1
